@@ -1,0 +1,121 @@
+.Home {
+    padding: 0 15px 10px;
+
+    .Header {
+        // border: 1px solid red;
+        height: 35px;
+        line-height: 35px;
+        background: #AA942D;
+        margin: 0 -15px 10px;
+        padding: 0 15px;
+        color: #fff;
+
+        .refresh {
+            font-size: 22px;
+            margin-right: 8px;
+            cursor: pointer;
+            position: relative;
+            top: 2px;
+        }
+    }
+
+    .searchBox {
+        margin-left: 12px;
+        position: relative;
+        top: 1px;
+    }
+
+    // 表格区外围
+    .tableWrap {
+        // border: 1px solid #f00;
+        // overflow: hidden;
+        position: absolute;
+        left: 15px;
+        top: 90px;
+        right: 15px;
+        // right: 222px;
+        bottom: 15px;
+        // background: #fff;
+    }
+
+    .rightMsg {
+        // border: 1px solid red;
+        position: fixed;
+        width: 250px;
+        top: 90px;
+        right: 15px;
+        bottom: 15px;
+        background: #fff;
+        font-size: 12px;
+        overflow: auto;
+
+        .title {
+            background: #AA942D;
+            padding: 5px 15px;
+            color: #fff;
+        }
+
+        .orderData {
+            margin: 10px 0 0;
+
+            >li {
+                // border:1px solid blue;
+                padding: 5px 15px;
+                margin-bottom: 8px;
+                background: rgb(251, 250, 246);
+                position: relative;
+                .down {
+                    display: block;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    margin-left: 15px;
+                    // border:1px solid red;
+                    padding: 8px;
+                    cursor: default;
+                }
+
+                .arrow {
+                    width: 100%;
+                    // border:1px solid red;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    text-align: right;
+                    line-height: 25px;
+                    padding-right: 8px;
+                    cursor: pointer;
+                }
+
+                &:nth-child(1) {
+                    color: rgb(138, 71, 69);
+                }
+
+                &:nth-child(2) {
+                    color: rgb(217, 180, 62);
+                }
+
+                &:nth-child(3) {
+                    color: rgb(255, 0, 0);
+                }
+
+                &:nth-child(4) {
+                    color: rgb(79, 120, 149);
+                }
+
+                &:nth-child(5) {
+                    color: rgb(120, 114, 99);
+                }
+
+                &:nth-child(6) {
+                    color: rgb(120, 114, 99);
+                }
+
+                &:nth-child(7) {
+                    color: rgb(50, 51, 52);
+                }
+            }
+        }
+    }
+}

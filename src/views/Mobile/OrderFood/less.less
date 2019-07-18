@@ -1,0 +1,353 @@
+.OrderFood {
+    height: 100%;
+
+    .cartList {
+        // border: 1px solid red;
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 45px;
+        background: rgba(0, 0, 0, .6);
+        z-index: 2;
+        font-size: 13px;
+
+        .box {
+            background: #fff;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            .title {
+                background: #ddd;
+                padding: 0 15px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 15px;
+
+                .clearCart {
+                    float: right;
+                    margin-left: 8px;
+                    font-size: 13px;
+
+                    i {
+                        margin-right: 3px;
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            >ul {
+                padding-left: 15px;
+
+                >li {
+                    border-bottom: 1px solid #f5f5f5;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 8px 15px 8px 0;
+
+                    .name {
+                        >div {
+                            color: #000;
+                        }
+
+                        >span {
+                            color: #909399;
+                            font-size: 12px;
+                        }
+                    }
+
+                    .price {
+                        margin-right: 15px;
+                        color: #f00;
+                    }
+
+                    .inputNum {
+                        width: 120px;
+                    }
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .footCart {
+        height: 45px;
+        line-height: 45px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 9;
+        // border: 1px solid red;
+        color: #fff;
+        background: #000;
+
+        .price {
+            color: #fff;
+            margin-left: 5px;
+
+            >i {
+                font-size: 22px;
+                margin-top: 10px;
+                margin-left: 15px;
+                float: left;
+            }
+
+            >em {
+                font-size: 16px;
+                font-style: normal;
+            }
+        }
+
+        .submit {
+            float: right;
+            height: 100%;
+            padding: 0 22px;
+            background: #65D4BF;
+        }
+    }
+
+    .slider {
+        // border: 1px solid red;
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, .6);
+        z-index: 20;
+        font-size: 13px;
+
+        .box {
+            background: #fff;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            .header {
+                color: #000;
+                text-align: center;
+                padding: 12px;
+                position: relative;
+
+                >em {
+                    font-style: normal;
+                }
+
+                .close {
+                    // background: red;
+                    font-size: 22px;
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    text-align: center;
+                    position: absolute;
+                    top: 50%;
+                    right: 15px;
+                    margin-top: -15px;
+                }
+            }
+
+            .pick {
+                padding: 15px;
+                margin-bottom: 5px;
+
+                .title {
+                    padding: 10px 0;
+                }
+
+                >ul {
+                    margin-bottom: 15px;
+
+                    >li {
+                        // float: left;
+                        display: inline-block;
+                        padding: 5px 12px;
+                        margin-right: 12px;
+                        border-radius: 3px;
+                        border: 1px solid #ddd;
+
+                        &.active {
+                            border-color: #65D4BF;
+                        }
+                    }
+                }
+            }
+
+            .footer {
+                height: 45px;
+                line-height: 45px;
+                background: #eee;
+                padding: 0 15px;
+                position: relative;
+
+                >em {
+                    color: #f00;
+                    font-style: normal;
+                    font-size: 16px;
+                }
+
+                .addCart {
+                    background: #65D4BF;
+                    border-radius: 15px;
+                    color: #fff;
+                    height: 30px;
+                    line-height: 30px;
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -15px;
+                    right: 15px;
+                    padding: 0 12px;
+                }
+            }
+        }
+    }
+
+    .top {
+        height: 45px;
+        line-height: 45px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        background: #ddd;
+        padding: 0 10px;
+
+        // border: 1px solid red;
+        // text-align: center;
+        .name {
+            float: right;
+            margin: 1px 5px 0 0;
+        }
+
+        .search {
+            width: 83%;
+        }
+
+        // >input {
+        //     // border: 1px solid red;
+        //     border: none;
+        //     border-radius: 12px;
+        //     margin: 0 auto;
+        //     padding: 0 12px;
+        //     height: 30px;
+        //     line-height: 30px;
+        //     width: 80%;
+        // }
+    }
+
+    .menu {
+        width: 100px;
+        // height: 45px;
+        position: fixed;
+        left: 0;
+        top: 45px;
+        bottom: 45px;
+        // border:1px solid red;
+        background: #eee;
+
+        >ul {
+            >li {
+                // border:1px solid black;
+                padding: 12px 10px;
+
+                &.active {
+                    background: #fff;
+                }
+            }
+        }
+    }
+
+    .list {
+        position: fixed;
+        left: 100px;
+        top: 45px;
+        bottom: 45px;
+        right: 0;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+
+        // border:1px solid blue;
+        >ul {
+            padding: 1px 15px 10px;
+
+            >li {
+                padding: 15px 0;
+                min-height: 50px;
+                // border: 1px solid blue;
+                position: relative;
+
+                img {
+                    width: 60px;
+                    height: 60px;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    margin-top: -25px;
+                }
+
+                .add {
+                    // border:1px solid red;
+                    height: 26px;
+                    line-height: 26px;
+                    border-radius: 12px;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    margin-top: -13px;
+                    font-size: 12px;
+                    padding: 0 8px;
+                    color: #fff;
+                    background: #65D4BF;
+                }
+
+                dl {
+                    // float: left;
+                    margin-left: 70px;
+                    line-height: 25px;
+                    padding-top: 8px;
+
+                    // border:1px solid red;
+                    >dt {
+                        color: #000;
+                    }
+
+                    >dd {
+                        color: #f00;
+                    }
+                }
+            }
+        }
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity .5s;
+    }
+
+    .fade-enter,
+    .fade-leave-to {
+        opacity: 0;
+    }
+
+    .slider-down-enter-active {
+        //定义vue下滑动画样式
+        transition: all .3s ease;
+    }
+
+    .slider-down-leave-active {
+        transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+
+    .slider-down-enter,
+    .slider-down-leave-to {
+        transform: translateY(500px);
+        opacity: 0;
+    }
+}

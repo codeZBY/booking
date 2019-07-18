@@ -1,0 +1,37 @@
+.MiniMember {
+  height: 100%;
+  position: relative;
+  .leftNav {
+    position: fixed;
+    width: 180px;
+    height: 100%;
+    // border:1px solid red;
+    background: #f0f8ff; // padding-top: 55px;
+    a {
+      display: block;
+      text-decoration: none; 
+      padding: 12px;
+      margin-bottom: 1px;
+      -moz-transition: all 0.3s ease-out;
+      -webkit-transition: all 0.3s ease-out;
+      -ms-transition: all 0.3s ease-out;
+      -o-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+      >i {
+        margin-right: 8px;
+      }
+      &:hover {
+        background: #fff;
+      }
+      &.router-link-active {
+        background: #fff;
+        color: #008cee;
+      }
+    }
+  }
+  .rightBox {
+    margin-left: 200px;
+    overflow: auto;
+    // border:1px solid blue;
+  }
+}

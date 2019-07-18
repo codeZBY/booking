@@ -1,0 +1,59 @@
+.base64 {
+  min-height: 88px;
+  >li {
+    width: 88px;
+    height: 88px;
+    line-height: 88px;
+    border: 1px solid #eee;
+    float: left;
+    overflow: hidden;
+    margin-right: 15px;
+    position: relative;
+    text-align: center;
+    border-radius: 3px;
+    .btns {
+    //   border: 1px solid red;
+      position: absolute;
+      z-index: 9;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      .icon {
+        // border: 1px solid blue;
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        line-height: 22px;
+        font-size: 22px;
+        color: #fff;
+        margin: 0 5px;
+        cursor: pointer;
+        &:hover{
+            color: #008cee;
+        }
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    input[type='file'] {
+      position: absolute;
+      font-size: 100px;
+      right: 0;
+      top: 0;
+      opacity: 0;
+      filter: alpha(opacity=0);
+      cursor: pointer;
+    }
+    i {
+      font-size: 33px;
+      color: #ddd;
+      margin-top: 25px;
+    }
+    &:hover i {
+      color: #606266;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+export default {
+    login: {
+        'title': 'Software system',
+        'login': 'Login'
+    },
+    mBooking: {
+        phone: 'MOBILE',
+        phonePlace: 'Please input MOBILE',
+        code: 'CODE',
+        codePlace: 'Please input code',
+        getCode: 'Get code',
+        surplus: 'Surplus',
+        name: 'NAME',
+        namePlace: 'Please input name',
+        gender: 'GENDER',
+        genderPlace: 'Please input GENDER',
+        man: 'Man',
+        woman: 'Woman',
+        unknow: 'Unknow',
+        email: 'EMAIL',
+        emailPlace: 'Please input email',
+        branch: 'BRANCH',
+        number: 'NUMBER',
+        customer: 'CUSTOMER',
+        date: 'DATE',
+        service: 'SERVICE',
+        servicePlace: 'Please pick SERVICE',
+        select: 'Selected',
+        sure: 'SURE',
+        submit: 'SUBMIT',
+        cancel: 'CANCEL',
+        checkTel: 'Please enter the correct mobile phone number',
+        checkMail: 'Please enter the correct mailbox',
+        checkOrder: 'Please choose the reservation item!',
+        viewMap: 'View Map',
+    }
+}

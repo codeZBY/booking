@@ -1,0 +1,137 @@
+.Home {
+  width: 520px;
+  height: 100%;
+  background: #fff;
+
+  .imageShow {
+    // border:1px solid red;
+    border-top: 1px solid #f0f0f0;
+    text-align: center;
+    // padding: 25px 0 0;
+    margin: 15px 10px;
+
+    .title {
+      font-size: 18px;
+    }
+
+    .descript {
+      margin-top: 5px;
+      font-size: 11px;
+    }
+
+    ul {
+      margin-top: 25px;
+
+      >li {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 22px;
+
+        .tipTop {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 22px;
+          text-align: center;
+
+          >span {
+            background: #65D4BF;
+            padding: 5px 22px;
+            border-radius: 16px;
+            color: #fff;
+          }
+        }
+
+        .tip {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 25px;
+
+          >span {
+            display: inline-block;
+            background: rgba(0, 0, 0, .5);
+            color: #fff;
+            padding: 5px 22px;
+            border-radius: 24px;
+          }
+        }
+      }
+    }
+  }
+
+  .peopleBox {
+    background: #fff;
+    padding: 5px 10px 1px;
+    min-height: 108px;
+
+    >.title {
+      border-left: 3px solid #DD6874;
+      padding: 0 8px;
+      margin: 8px 0 10px;
+      font-size: 14px;
+    }
+
+    ul.peopleUL {
+      padding-bottom: 10px;
+      // border:1px solid red;
+      overflow-x: scroll;
+      box-sizing: border-box;
+      // display: flex;
+      white-space: nowrap; //这个属性很重要
+
+      >li {
+        // border: 1px solid #eee;
+        display: inline-block;
+        line-height: 20px;
+        width: 200px;
+        // height: 300px;
+        // float: left;
+        margin-bottom: 8px;
+        text-align: center;
+        margin-right: 15px;
+
+        >a {
+          border: 1px solid #eee;
+          border-radius: 3px;
+          margin-right: 10px;
+        }
+
+        .pic {
+          height: 200px;
+          overflow: hidden;
+          border-radius: 5px;
+          overflow: hidden;
+          margin-bottom: 15px;
+        }
+
+        .name {
+          font-size: 18px;
+        }
+
+        .position {
+          color: #777;
+          font-size: 12px;
+        }
+
+        .store {
+          color: #999;
+          padding: 5px;
+          font-size: 11px;
+
+          span {
+            background: #f7f7f7;
+            padding: 5px 12px;
+            border-radius: 12px;
+          }
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+    }
+  }
+}

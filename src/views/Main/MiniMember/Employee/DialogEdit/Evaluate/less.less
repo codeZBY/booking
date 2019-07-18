@@ -1,0 +1,39 @@
+.Evaluate {
+  min-height: 242px;
+  >li{
+    // border:1px solid red;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+    // padding-bottom: 10px;
+    min-height: 100px;
+    >.descript{
+      padding-bottom: 8px;
+      .pull-right{
+        color: #f60;
+        i{
+          font-size: 18px;
+        }
+      }
+      .name {
+        color: #333;
+        margin-right: 10px;
+      }
+      .time{
+        font-size: 13px;
+      }
+      .content {
+        padding: 5px 0;
+      }
+    }
+    .pic {
+      >span{
+        display: inline-block;
+        width: 180px;
+        margin: 0 15px 15px 0;
+      }
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

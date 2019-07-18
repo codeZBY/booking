@@ -1,0 +1,287 @@
+// 表格工作区
+.DragTable {
+    // border: 1px solid blue;
+    height: 100%;
+
+    .zoneWrap {
+        table {
+            text-align: center;
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            table-layout: fixed;
+            word-break: break-all;
+
+            th,
+            td {
+                width: 150px;
+                border: 1px solid #D9D9D9;
+                border-right-color: #bbb;
+                font-size: 14px;
+                position: relative;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+
+                &:first-child {
+                    border-left: none;
+                }
+            }
+
+            th {
+                background: #AA942D;
+                color: #fff;
+                height: 40px;
+                text-align: center;
+            }
+
+            td {
+                border: 1px solid #D9D9D9;
+                color: #384967;
+                font-size: 12px;
+                -webkit-transition: all 0.2s ease-out;
+                -ms-transition: all 0.2s ease-out;
+                -o-transition: all 0.2s ease-out;
+                transition: all 0.2s ease-out;
+
+                &:active {
+                    background: #ddd;
+                }
+
+                &.grayColor {
+                    background: #ddd;
+                }
+
+                &.disabled {
+                    background: #E7EAED;
+                    cursor: no-drop;
+
+                    .customer .header {
+                        cursor: default;
+                    }
+                }
+            }
+
+        }
+
+        #leftBox {
+            width: 65px;
+            float: left;
+
+            th,
+            td {
+                width: 60px;
+            }
+
+        }
+
+        #left_tableBox tr:nth-child(1) td {
+            border-top: none;
+        }
+
+        #leftDown {
+            height: 650px;
+            overflow: hidden;
+
+            td {
+                background: #AA942D;
+                color: #fff;
+                font-size: 28px;
+                text-align: right;
+
+                >i {
+                    font-size: 12px;
+                    position: relative;
+                    top: -5px;
+                    margin: 0 5px;
+                }
+            }
+        }
+
+        // 
+        #rightBox {
+            float: left;
+            min-width: 555px;
+            // border: 1px solid blue;
+            position: relative;
+
+            .sliderOpen {
+                width: 12px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                position: absolute;
+                top: 50%;
+                margin-top: -20px;
+                right: -12px;
+                z-index: 9;
+                background: #ddd;
+                border-radius: 0 7px 7px 0;
+                color: #909399;
+
+                &:hover {
+                    cursor: pointer;
+                    color: #303133;
+                }
+            }
+
+            .isFull {
+                right: 0;
+                border-radius: 7px 0 0 7px;
+            }
+        }
+
+        #rightTop {
+            width: 100%;
+            overflow: hidden;
+
+            // #right_tableTop {
+            //     // width: 440px;
+            // }
+        }
+
+        #rightDown {
+            width: 100%;
+            min-height: 650px;
+            overflow: auto;
+        }
+
+        #right_tableBox {
+            min-width: 320px;
+            overflow: hidden;
+
+            tr:nth-child(3n) td {
+                border-bottom-color: #bbb;
+            }
+        }
+
+        /* 客户预定区 */
+        .customer {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            z-index: 9;
+            background: #AA942D;
+            color: #fff;
+            min-height: 20px;
+            text-align: left;
+            cursor: default;
+
+            .header {
+                // background: rgb(131, 107, 2);
+                color: #fff;
+                padding: 0 6px;
+                height: 20px;
+                line-height: 20px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                cursor: move;
+
+                >span {
+                    background: #fff;
+                    color: #AA942D;
+                    padding: 0 3px;
+                }
+            }
+
+            .custBody {
+                /* border:1px solid red; */
+                padding: 3px 6px;
+                position: absolute;
+                left: 0;
+                top: 20px;
+                right: 0;
+                bottom: 20px;
+                overflow: auto;
+            }
+
+            .operaBtns {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                padding: 3px 0;
+                /* display: none; */
+                display: flex;
+
+                >div {
+                    flex: 1;
+                    text-align: center;
+                    cursor: pointer;
+
+                    &.disabled {
+                        color: #ddd;
+                        cursor: no-drop;
+                    }
+                }
+            }
+
+            &.statusA {
+                // border:1px solid red;
+                background: rgb(138, 71, 69);
+
+                .header>span {
+                    color: rgb(109, 43, 41);
+                }
+
+                &:hover .header {
+                    background: rgb(109, 43, 41);
+                }
+            }
+
+            &.statusB {
+                background: rgb(218, 179, 60);
+
+                .header>span {
+                    color: rgb(207, 166, 40);
+                }
+
+                &:hover .header {
+                    background: rgb(207, 166, 40);
+                }
+            }
+
+            &.statusC {
+                background: rgb(77, 149, 147);
+
+                .header>span {
+                    color: rgb(36, 133, 129);
+                }
+
+                &:hover .header {
+                    background: rgb(36, 133, 129);
+                }
+            }
+
+            &.statusD {
+                background: rgb(118, 114, 99);
+
+                .header>span {
+                    color: rgb(82, 78, 64);
+                }
+
+                &:hover .header {
+                    background: rgb(82, 78, 64);
+                }
+            }
+
+            &.statusE {
+                background: rgb(255, 0, 0);
+
+                .header>span {
+                    color: rgb(255, 0, 0);
+                }
+
+                &:hover .header {
+                    background: rgb(218, 2, 2);
+                }
+            }
+        }
+    }
+}

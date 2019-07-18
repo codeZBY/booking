@@ -1,0 +1,111 @@
+.MobileOrder {
+    padding-bottom: 65px;
+    .dialogNotice {
+        // border:1px solid red;
+        // margin-top: -28px;
+        // line-height: 28px;
+        padding:5px 15px 5px;
+        font-size: 12px;
+        div{
+            margin: 8px 0;
+        }
+
+        .mainColor {
+            color: #AA942D;
+        }
+
+        .mainTitle {
+            font-size: 18px;
+        }
+        .goMap{
+            background: #AA942D;
+            color: #fff;
+            padding: 0 3px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        ul {
+            // border: 1px solid red;
+            color: #AA942D;
+            clear: both;
+
+            >li {
+                float: left;
+            }
+
+        }
+
+    }
+
+    .itemsPick {
+        // border:1px solid red;
+        padding:35px 15px 15px;
+        max-height: 555px;
+        overflow: auto;
+        .btns{
+            position: absolute;
+            border-bottom: 1px solid #efefef;
+            left: 0;
+            top: 0;
+            right: 0;
+            // display:flex;
+            // justify-content: space-between;
+            align-content: center;
+            text-align: center;
+            background: #fff;
+            color: #AA942D;
+            font-weight: bold;
+            span{
+                display: block;
+                padding: 8px 15px;
+            }
+        }
+        .itemTitle{
+            font-size: 16px;
+            color: #AA942D;
+            margin: 10px 0 5px;
+        }
+        .itemList{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-gap: 10px;
+            align-items: center;
+            // justify-items: center;
+            >li{
+                border:1px solid #909399;
+                padding: 6px;
+                border-radius: 3px;
+                text-align: center;
+                &.active{
+                    background: #AA942D;
+                    color: #fff;
+                    border-color: #AA942D;
+                }
+            }
+        }
+
+    }
+    .title {
+        // border:1px solid red;
+        padding: 5px 15px;
+        margin: 10px 0;
+        >span{
+            background: #AA942D;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 3px;
+        }
+    }
+    .submit {
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #AA942D;
+        color: #fff;
+    }
+}

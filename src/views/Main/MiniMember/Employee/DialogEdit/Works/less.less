@@ -1,0 +1,87 @@
+.workWrap {
+  // border:1px solid blue;
+  >li {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    width: 180px;
+    min-height: 238px;
+    float: left;
+    margin: 0 15px 15px 0;
+    position: relative;
+    padding: 0 0 10px;
+    // overflow: hidden;
+    .show {
+      color: #909399;
+      line-height: 20px;
+      padding: 10px;
+      a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+      
+      .btns {
+        position: absolute; 
+        // border:1px solid blue;
+        top: -8px;
+        // left: 0;
+        width: 88px;
+        right: 50%;
+        margin-right: -44px;
+        opacity: .5;
+        text-align: center;
+        display: none;
+      }
+      >dl {
+        color: #606266;
+        margin-left: 8px;
+        >dt {
+          margin-top: 8px;
+          color: #303133;
+        }
+        >dd {
+          font-size: 12px;
+        }
+      }
+    }
+    .edit {
+      text-align: center;
+      padding: 8px 5px 0;
+      .el-button,
+      .el-input,
+      .el-textarea {
+        margin-top: 10px;
+      }
+    }
+    .editBtn {
+      position: absolute;
+      width: 66px;
+      height: 66px;
+      line-height: 66px;
+      text-align: center;
+      left: 50%;
+      margin-left: -33px;
+      top: 50%;
+      margin-top: -33px;
+      font-size: 48px;
+      color: #999;
+      &:hover {
+        color: #008cee;
+        cursor: pointer;
+      } // border:1px solid red;
+    }
+    &:hover {
+      // border-color: #666;
+      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+      .btns {
+        display: block;
+        opacity: 1;
+      }
+    }
+  }
+}
