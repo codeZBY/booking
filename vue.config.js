@@ -16,5 +16,11 @@ module.exports = {
       }
     } // 配置多个代理
   },
-  lintOnSave: false // 关闭eslint代码检查
+  lintOnSave: false, // 关闭eslint代码检查
+  productionSourceMap:true,
+  configureWebpack: config => {
+    if (process.env.NODE_ENV === 'development') {
+      return { devtool: '#source-map' }
+    }
+  }
 };

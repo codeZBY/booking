@@ -290,7 +290,7 @@ export default {
       dataObj.dfdStartTime = pickDate + ' ' + startNew
       dataObj.dfdEndTime = pickDate + ' ' + endNew
       // log(dataObj)
-      if (this.formData.radio === 0){
+      if (this.formData.radio == 0){
         dataObj.ifdRoomId = itemData.TDdata.RoomId
         dataObj.ifdBerthId = itemData.TDdata.ifdBerthId
         dataObj.cfdRoomName = itemData.TDdata.RoomName
