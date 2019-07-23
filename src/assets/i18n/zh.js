@@ -24,7 +24,7 @@ export default {
         branch: '门店',
         number: '人数',
         customer: '顾客',
-        date: '预约时间',
+        date: '时间',
         service: '预约项目',
         servicePlace: '请选择项目',
         select: '已选择',

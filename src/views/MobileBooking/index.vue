@@ -12,10 +12,22 @@
         :label="$t('mBooking.phone')"
         :placeholder="$t('mBooking.phonePlace')"
       ></van-field>
-      <van-field v-model="form.code" required center clearable :label="$t('mBooking.code')" :placeholder="$t('mBooking.codePlace')">
-        <van-button @click="getTelCode()" :disabled="second!==0" slot="button" size="small" type="primary" style="background:#AA942D; border:none;">
-          {{second===0 ? $t('mBooking.getCode') : $t('mBooking.surplus')+second+'S'}}
-        </van-button>
+      <van-field
+        v-model="form.code"
+        required
+        center
+        clearable
+        :label="$t('mBooking.code')"
+        :placeholder="$t('mBooking.codePlace')"
+      >
+        <van-button
+          @click="getTelCode()"
+          :disabled="second!==0"
+          slot="button"
+          size="small"
+          type="primary"
+          style="background:#AA942D; border:none;"
+        >{{second===0 ? $t('mBooking.getCode') : $t('mBooking.surplus')+second+'S'}}</van-button>
       </van-field>
       <van-field
         v-model="form.name"
@@ -24,36 +36,43 @@
         :label="$t('mBooking.name')"
         :placeholder="$t('mBooking.namePlace')"
       ></van-field>
-      <van-field
-        v-model="form.sex"
-        required
-        clearable
-        :label="$t('mBooking.gender')"
-      ></van-field>
+      <van-field v-model="form.sex" required clearable :label="$t('mBooking.gender')"></van-field>
 
-      <van-cell :title="$t('mBooking.branch')" :value="columns[columnIndex]" required is-link 
+      <van-cell
+        :title="$t('mBooking.branch')"
+        :value="columns[columnIndex]"
+        required
+        is-link
         @click="StorePickShow = true"
       />
       <!-- <van-cell :title="$t('mBooking.number')" value="" required>
         <template slot="default">
             <van-stepper v-model="stepVal" @change="stepChange" min="1" max="5" integer />
         </template>
-      </van-cell> -->
+      </van-cell>-->
     </van-cell-group>
 
-<div v-for="(item,index) in customerArr" :key="index">
-    <div class="title clearfix" style="margin-top:15px;">
-      <span class="">{{$t('mBooking.customer')}} {{index+1}}</span>
+    <div v-for="(item,index) in customerArr" :key="index">
+      <div class="title clearfix" style="margin-top:15px;">
+        <span class>{{$t('mBooking.customer')}} {{index+1}}</span>
+      </div>
+      <van-cell-group>
+        <van-cell
+          :title="$t('mBooking.date')"
+          :value="item.dfdStartTime"
+          required
+          is-link
+          @click="datePickShow = true; custActIndex = index"
+        />
+        <van-cell
+          :title="$t('mBooking.service')"
+          :value="item.MentDtlList.length > 0 ? $t('mBooking.select')+item.MentDtlList.length+'' : $t('mBooking.servicePlace')"
+          required
+          is-link
+          @click="pickItemShow(item, index)"
+        />
+      </van-cell-group>
     </div>
-    <van-cell-group>
-      <van-cell :title="$t('mBooking.date')" :value="item.dfdStartTime" required is-link 
-        @click="datePickShow = true; custActIndex = index"
-      />
-      <van-cell :title="$t('mBooking.service')" :value="item.MentDtlList.length > 0 ? $t('mBooking.select')+item.MentDtlList.length+'' : $t('mBooking.servicePlace')" required is-link 
-        @click="pickItemShow(item, index)"
-      />
-    </van-cell-group>
-</div>
 
     <!-- 门店 -->
     <van-popup v-model="StorePickShow" position="bottom">
@@ -83,14 +102,16 @@
           <span @click="itemsPickShow = false">{{$t('mBooking.sure')}}</span>
         </div>
         <div v-for="(item,index) in itemArr" :key="index">
-          <div class="itemTitle">{{$i18n.locale == 'zh_CN' ? item.ServiceName : item.cfdServiceNameEn}}</div>
+          <div
+            class="itemTitle"
+          >{{$i18n.locale == 'zh_CN' ? item.ServiceName : item.cfdServiceNameEn}}</div>
           <ul class="itemList">
-            <li @click="itemClick(item, item2);" v-for="(item2,index2) in item.ItemClassList"
-             :key="index2"
-             :class="item2.active ? 'active' : ''"
-             >
-              {{$i18n.locale == 'zh_CN' ? item2.cfdItemClass : item2.cfdItemClassEn}}
-            </li>
+            <li
+              @click="itemClick(item, item2);"
+              v-for="(item2,index2) in item.ItemClassList"
+              :key="index2"
+              :class="item2.active ? 'active' : ''"
+            >{{$i18n.locale == 'zh_CN' ? item2.cfdItemClass : item2.cfdItemClassEn}}</li>
           </ul>
         </div>
       </div>
@@ -100,15 +121,11 @@
 
     <van-popup v-model="showPopup01" style=" border-radius: 8px;">
       <div v-if="$i18n.locale == 'zh_CN'" style="padding:20px 10px; text-align:center;">
-        <div style="color:#AA942D; padding-bottom:8px;">
-          预约提交成功！
-        </div>
-        预约确认信息将发送到【桑格水疗会所】<br>
-        微信公众平台，请注意查收！
+        <div style="color:#AA942D; padding-bottom:8px;">预约提交成功！</div>预约确认信息将发送到【桑格水疗会所】
+        <br />微信公众平台，请注意查收！
       </div>
       <div v-else style="padding:20px 10px; text-align:center;">
-        <div style="color:#AA942D; padding-bottom:8px;">Thank you for submitting your reservation!</div>
-        We will confirm your reservation in [Subconscious day spa] WeChat ASAP.
+        <div style="color:#AA942D; padding-bottom:8px;">Thank you for submitting your reservation!</div>We will confirm your reservation in [Subconscious day spa] WeChat ASAP.
         please check your reservation status.
       </div>
     </van-popup>
@@ -124,37 +141,53 @@
           Sorry.Your reservation is not successful!
         </div>
       </div>
-    </van-popup> -->
+    </van-popup>-->
     <van-popup v-model="showPopup02" style=" border-radius: 8px; width:92%;">
       <div class="text-center dialogNotice">
-          <div class="mainColor mainTitle">{{dialogDataObj.TitleName}}</div>
-          <div>{{dialogDataObj.DateTitleName}}</div>
-          <ul class="clearfix">
-            <li style="width:50%;text-align:left;" v-for="(item,index) in dialogDataObj.TimeList" :key="index">{{item}}</li>
-          </ul>
-          <div>{{dialogDataObj.FendianTitleName}}</div>
-          <ul class="clearfix">
-            <li v-for="(item,index) in dialogDataObj.FendianList" :key="index">
-              <span>{{$i18n.locale == 'zh_CN' ? item.cfdFendianName : item.cfdFendianNameE}}</span>
-              <span style="margin-left:20px;">{{item.cfdAddress}}</span>
-              <span class="goMap" @click="goMap(item)">{{$t('mBooking.viewMap')}}</span>
-            </li>
-          </ul>
-          <div style="text-align:center">
-            <van-button @click="showPopup02 = false" size="small" type="primary" style="background:#AA942D; border:none;">
-          {{$t('mBooking.sure')}}
-            </van-button>
-          </div>
+        <div class="mainColor mainTitle">{{dialogDataObj.TitleName}}</div>
+        <div>{{dialogDataObj.DateTitleName}}</div>
+        <ul class="clearfix">
+          <li
+            style="width:50%;text-align:left;"
+            v-for="(item,index) in dialogDataObj.TimeList"
+            :key="index"
+          >{{item}}</li>
+        </ul>
+        <div>{{dialogDataObj.FendianTitleName}}</div>
+        <ul class="clearfix">
+          <li v-for="(item,index) in dialogDataObj.FendianList" :key="index">
+            <span>{{$i18n.locale == 'zh_CN' ? item.cfdFendianName : item.cfdFendianNameE}}</span>
+            <span style="margin-left:20px;">{{item.cfdAddress}}</span>
+            <span class="goMap" @click="goMap(item)">{{$t('mBooking.viewMap')}}</span>
+          </li>
+        </ul>
+        <div style="text-align:center">
+          <van-button
+            @click="showPopup02 = false"
+            size="small"
+            type="primary"
+            style="background:#AA942D; border:none;"
+          >{{$t('mBooking.sure')}}</van-button>
         </div>
+      </div>
     </van-popup>
-
   </div>
 </template>
 
 <script>
 import moment from "moment";
 import { setTitle, setStore, getStore, checkPhone } from "@/libs/utils.js";
-import { Button, CellGroup, Field, DatetimePicker, Popup, Picker, Cell, Stepper, Toast } from "vant";
+import {
+  Button,
+  CellGroup,
+  Field,
+  DatetimePicker,
+  Popup,
+  Picker,
+  Cell,
+  Stepper,
+  Toast
+} from "vant";
 import "vant/lib/button/style";
 import "vant/lib/cell-group/style";
 import "vant/lib/field/style";
@@ -183,13 +216,13 @@ export default {
         // code: '510311',
         // name: '小向',
         // sex: '男',
-        tel: '',
-        code: '',
-        name: '',
-        sex: '女',
+        tel: "",
+        code: "",
+        name: "",
+        sex: "女"
       },
       minDate: new Date(),
-      currentDate: '',
+      currentDate: "",
       columnIndex: 0,
       columns: [], // 门店选择
       columnArr: [],
@@ -197,7 +230,7 @@ export default {
       custActIndex: 0,
       customerArr: [],
       itemArr: [], // 项目
-      second: 0,
+      second: 0
     };
   },
   created() {
@@ -211,74 +244,73 @@ export default {
 
     Toast.loading({
       mask: true,
-      message: 'loading...'
+      message: "loading..."
     });
     setTimeout(() => {
-      this.getCode()
-      Toast.clear()
-    }, 2000)
+      this.getCode();
+      Toast.clear();
+    }, 2000);
   },
   methods: {
-    goMap(item){
+    goMap(item) {
       // log(item)
-      let url = 'http://api.map.baidu.com/geocoder?address=上海市'
-      url += item.cfdAddress
-      url += '&output=html&src=webapp.baidu.openAPIdemo'
-      window.open(url)
+      let url = "http://api.map.baidu.com/geocoder?address=上海市";
+      url += item.cfdAddress;
+      url += "&output=html&src=webapp.baidu.openAPIdemo";
+      window.open(url);
     },
     langToggle() {
-      log(this.$i18n.locale)
-      this.$i18n.locale = this.$i18n.locale == 'zh_CN' ? 'en_US' : 'zh_CN'
-      this.form.sex = this.$i18n.locale == 'zh_CN' ? '女' : 'woman'
-      this.getCode()
+      log(this.$i18n.locale);
+      this.$i18n.locale = this.$i18n.locale == "zh_CN" ? "en_US" : "zh_CN";
+      this.form.sex = this.$i18n.locale == "zh_CN" ? "女" : "woman";
+      this.getCode();
     },
     filter2(type, options) {
       // log(type)
       // log(options)
-      if (type === 'minute') {
-        return options.filter(option => option % 10 === 0)
+      if (type === "minute") {
+        return options.filter(option => option % 10 === 0);
       }
 
       return options;
     },
     datePickSure(val) {
       // log(val)
-      this.datePickShow = false
-      let aa = JSON.parse(JSON.stringify(this.customerArr))
-      aa[this.custActIndex].dfdStartTime = moment(val).format("YYYY-MM-DD HH:mm")
-      this.customerArr = aa
+      this.datePickShow = false;
+      let aa = JSON.parse(JSON.stringify(this.customerArr));
+      aa[this.custActIndex].dfdStartTime = moment(val).format(
+        "YYYY-MM-DD HH:mm"
+      );
+      this.customerArr = aa;
     },
-    waitSecond () {
-      this.second = 90
+    waitSecond() {
+      this.second = 90;
       let t = setInterval(() => {
-        this.second--
+        this.second--;
         if (this.second === 0) {
-          clearInterval(t)
+          clearInterval(t);
         }
-      }, 1000)
+      }, 1000);
       // 15921812928
     },
-    getTelCode(){
-            // this.waitSecond()
-            // return
-      if (this.form.tel === '' || !checkPhone(this.form.tel)) {
-        Toast(this.$t('mBooking.checkTel'));
-        return false
+    getTelCode() {
+      // this.waitSecond()
+      // return
+      if (this.form.tel === "" || !checkPhone(this.form.tel)) {
+        Toast(this.$t("mBooking.checkTel"));
+        return false;
       }
 
       this.$axios
-        .get(
-          this.GLOBAL.baseURL + "Common/GetValidHistoryCode",
-          {
-            params: {
-              MoTel: this.form.tel,
-              language: this.$i18n.locale == 'zh_CN' ? 0 : 1
-            }
+        .get(this.GLOBAL.baseURL + "Common/GetValidHistoryCode", {
+          params: {
+            MoTel: this.form.tel,
+            language: this.$i18n.locale == "zh_CN" ? 0 : 1
           }
-        )
+        })
         .then(res => {
           if (Number(res.code) === 0) {
-            this.waitSecond()
+            this.waitSecond();
           } else {
             this.$message.error(res.msg);
           }
@@ -286,14 +318,14 @@ export default {
     },
     // 选项目打开
     pickItemShow(data, index) {
-      this.itemsPickShow = true
-      this.custActIndex = index
+      this.itemsPickShow = true;
+      this.custActIndex = index;
 
       this.itemArr.forEach(item00 => {
         item00.ItemClassList.forEach(item11 => {
-          item11.active = false          
-        })
-      })
+          item11.active = false;
+        });
+      });
 
       this.itemArr.forEach(item00 => {
         item00.ItemClassList.forEach(item11 => {
@@ -301,48 +333,49 @@ export default {
             // log(item11)
             // log(item22)
             if (item22.cfdItemClassId === item11.ifdClassId) {
-              item11.active = true
+              item11.active = true;
             }
-          })
-        })
-      })
+          });
+        });
+      });
     },
     // 选项目
     itemClick(itemAll, item2) {
       // log(item)
       // log(item2)
       // log(this.custActIndex)
-      item2.active = !item2.active
+      item2.active = !item2.active;
 
-      let custBakArr = JSON.parse(JSON.stringify(this.customerArr))
+      let custBakArr = JSON.parse(JSON.stringify(this.customerArr));
       // log(aa)
-      let currentPickArr = custBakArr[this.custActIndex].MentDtlList
-      if (item2.active) { // 添加
+      let currentPickArr = custBakArr[this.custActIndex].MentDtlList;
+      if (item2.active) {
+        // 添加
         currentPickArr.push({
           cfdItemClassId: item2.ifdClassId,
           ifdUseMinutes: item2.NeedMinute
-        })
+        });
       } else {
         currentPickArr.forEach((item0, index0, arr0) => {
           if (item2.ifdClassId == item0.cfdItemClassId) {
-            arr0.splice(index0, 1)
+            arr0.splice(index0, 1);
           }
-        })
+        });
       }
 
-      this.customerArr = custBakArr
+      this.customerArr = custBakArr;
     },
     stepChange(index) {
       // log(index)
-      this.addCust()       
+      this.addCust();
     },
     onChange(picker, value, index) {
       log(`当前值：${value}, 当前索引：${index}`);
-      this.columnIndex = index
+      this.columnIndex = index;
     },
-    getCode(){
-      this.getShops()          
-            this.addCust()   
+    getCode() {
+      this.getShops();
+      this.addCust();
       // this.$axios
       //   .post(
       //     this.GLOBAL.baseURL + "SanggeWeChat/WxLogin",
@@ -352,15 +385,15 @@ export default {
       //   )
       //   .then(res => {
       //     if (Number(res.code) === 0) {
-      //       setStore('loginObj', res.data)  
-      //       this.getShops()          
-      //       this.addCust()       
+      //       setStore('loginObj', res.data)
+      //       this.getShops()
+      //       this.addCust()
       //     } else {
       //       this.$message.error(res.msg);
       //     }
       //   });
     },
-    addCust(){
+    addCust() {
       let obj = {
         dfdStartTime: moment(new Date()).format("YYYY-MM-DD HH:mm"),
         MentDtlList: [
@@ -373,88 +406,85 @@ export default {
           //   ifdUseMinutes: 120
           // },
         ]
-      }
-      this.customerArr = []
-      for(var i=0;i<this.stepVal;i++){
-        this.customerArr.push(obj)
+      };
+      this.customerArr = [];
+      for (var i = 0; i < this.stepVal; i++) {
+        this.customerArr.push(obj);
       }
     },
-    getShops(){
+    getShops() {
       this.$axios
-        .post(
-          this.GLOBAL.baseURL + "SanggeWeChat/QuerySanggeFendianList",
-          {
-            Keyword: '',
-            IsShow: true,
-            language: this.$i18n.locale == 'zh_CN' ? 0 : 1
-          }
-        )
+        .post(this.GLOBAL.baseURL + "SanggeWeChat/QuerySanggeFendianList", {
+          Keyword: "",
+          IsShow: true,
+          language: this.$i18n.locale == "zh_CN" ? 0 : 1
+        })
         .then(res => {
           if (Number(res.code) === 0) {
             // log(res.data)
-            this.columnArr = res.data
+            this.columnArr = res.data;
             this.columns = res.data.map(item => {
-              if (this.$i18n.locale == 'zh_CN') {
-                return item.cfdFendianName
+              if (this.$i18n.locale == "zh_CN") {
+                return item.cfdFendianName;
               } else {
-                return item.cfdFendianNameE
+                return item.cfdFendianNameE;
               }
-            }
-            )
-            this.getItems()   
+            });
+            this.getItems();
           } else {
             this.$message.error(res.msg);
           }
         });
     },
-    getItems(){
+    getItems() {
       this.$axios
-        .post(
-          this.GLOBAL.baseURL + "SanggeWeChat/QuerySanggeServiceTypeList",
-          {
-            ifdFendianId: this.columnArr[this.columnIndex].ifdFendianId,
-            language: this.$i18n.locale == 'zh_CN' ? 0 : 1
-          }
-        )
+        .post(this.GLOBAL.baseURL + "SanggeWeChat/QuerySanggeServiceTypeList", {
+          ifdFendianId: this.columnArr[this.columnIndex].ifdFendianId,
+          language: this.$i18n.locale == "zh_CN" ? 0 : 1
+        })
         .then(res => {
           if (Number(res.code) === 0) {
             // log(res.data)
-            this.itemArr = res.data
+            this.itemArr = res.data;
           } else {
             this.$message.error(res.msg);
           }
         });
     },
-    checkForm(){
-      if (this.form.tel == '') {
-      log(this.$i18n.locale)
-        Toast(this.$t('mBooking.phonePlace'))
-        return false
+    checkForm() {
+      if (this.form.tel == "") {
+        log(this.$i18n.locale);
+        Toast(this.$t("mBooking.phonePlace"));
+        return false;
       }
-      if (this.form.code == '') {
-        Toast(this.$t('mBooking.codePlace'))
-        return false
+      if (this.form.code == "") {
+        Toast(this.$t("mBooking.codePlace"));
+        return false;
       }
-      if (this.form.name == '') {
-        Toast(this.$t('mBooking.namePlace'))
-        return false
+      if (this.form.name == "") {
+        Toast(this.$t("mBooking.namePlace"));
+        return false;
       }
-      if (this.form.sex == '') {
-        Toast(this.$t('mBooking.genderPlace'))
-        return false
+      if (this.form.sex == "") {
+        Toast(this.$t("mBooking.genderPlace"));
+        return false;
       }
-      let itemNull = this.customerArr.filter(item => item.MentDtlList.length === 0)    
+      let itemNull = this.customerArr.filter(
+        item => item.MentDtlList.length === 0
+      );
       if (itemNull.length > 0) {
-        Toast(this.$t('mBooking.servicePlace'))
-        return false
+        Toast(this.$t("mBooking.servicePlace"));
+        return false;
       }
-      return true  
+      return true;
     },
-    submit(){
-      if (!this.checkForm()) {return}
+    submit() {
+      if (!this.checkForm()) {
+        return;
+      }
       Toast.loading({
         mask: true,
-        message: 'waiting...'
+        message: "waiting..."
       });
       let data = {
         ifdFendianId: this.columnArr[this.columnIndex].ifdFendianId,
@@ -462,42 +492,38 @@ export default {
         cfdTel: this.form.tel,
         TelCode: this.form.code,
         cfdSex: this.form.sex,
-        cfdEmail: '',
-        cfdWeixinOpenid: '',
-        cfdMemberId: '',
+        cfdEmail: "",
+        cfdWeixinOpenid: "",
+        cfdMemberId: "",
         AppointMentNumber: this.stepVal,
         MentMstList: this.customerArr,
-        language: this.$i18n.locale == 'zh_CN' ? 0 : 1
-      }
-      log(data)
+        language: this.$i18n.locale == "zh_CN" ? 0 : 1
+      };
+      log(data);
       // return
       this.$axios
-        .post(
-          this.GLOBAL.baseURL + "SanggeWeChat/AddSanggeWxReserve",data)
+        .post(this.GLOBAL.baseURL + "SanggeWeChat/AddSanggeWxReserve", data)
         .then(res => {
-          Toast.clear()
+          Toast.clear();
           if (Number(res.code) === 0) {
-            // this.$message.success('预约成功！')   
-            this.showPopup01 = true    
-            
-            this.form = {
-              tel: '',
-              code: '',
-              name: '',
-              sex: '女',
-            },
-            this.customerArr = []
-            this.stepVal = 1
-            
+            // this.$message.success('预约成功！')
+            this.showPopup01 = true;
+
+            (this.form = {
+              tel: "",
+              code: "",
+              name: "",
+              sex: "女"
+            }),
+              (this.customerArr = []);
+            this.stepVal = 1;
           } else {
             if (res.data && res.data.TitleName) {
-              this.showPopup02 = true
-              this.dialogDataObj = res.data
+              this.showPopup02 = true;
+              this.dialogDataObj = res.data;
             } else {
               this.$message.error(res.msg);
             }
-
-            
           }
         });
     }
@@ -511,7 +537,7 @@ export default {
     "van-picker": Picker,
     "van-cell": Cell,
     "van-stepper": Stepper,
-    "Toast": Toast,
+    Toast: Toast
   }
 };
 </script>

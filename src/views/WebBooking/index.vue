@@ -20,7 +20,7 @@
         </el-form-item>
       </el-col>
       <el-col :span="8">
-        <el-form-item :label="$t('mBooking.gender')" prop="sex">
+        <el-form-item :label="$t('mBooking.gender')" prop="gender" required>
           <!-- <el-input v-model="form.sex" placeholder="请输入性别"></el-input> -->
           <el-select v-model="form.sex" placeholder="">
             <el-option :label="$t('mBooking.woman')" :value="$t('mBooking.woman')"> </el-option>
@@ -47,8 +47,8 @@
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12">
-      <el-form-item :label="$t('mBooking.branch')" prop="">
-        <el-select v-model="columnVal" placeholder="请选择">
+      <el-form-item :label="$t('mBooking.branch')" prop="branch" required >
+        <el-select v-model="form.branch" placeholder="请选择" style="width: 100%;">
           <el-option
             v-for="item in columnArr"
             :key="item.ifdFendianId"
@@ -59,8 +59,9 @@
       </el-form-item>
       </el-col>
       <el-col :span="12">
-        <el-form-item :label="$t('mBooking.number')" prop="stepVal">
-          <el-input-number v-model="stepVal" controls-position="right" 
+        <el-form-item :label="$t('mBooking.number')" prop="number">
+          <el-input-number v-model="stepVal" controls-position="right" style="width: calc(100% - 7px);"
+          size="mini"
           @change="handleChange" :min="1" :max="5"></el-input-number>
         </el-form-item>
       </el-col>
@@ -68,7 +69,7 @@
 
     <div class="customerBox" v-for="(item,index) in customerArr" :key="index">
       <div class="name"><span>{{$t('mBooking.customer')}} {{index+1}}</span></div>
-      <el-form-item :label="$t('mBooking.date')" prop="">
+      <el-form-item :label="$t('mBooking.date')" prop="date" required>
         <el-date-picker
       v-model="item.dfdStartTime"
       type="datetime"
@@ -78,7 +79,7 @@
     </el-date-picker>
       </el-form-item>
       <div class="custItem">
-        <!-- <el-form-item label="预约项目" prop="" required=""></el-form-item> -->
+        <!-- <el-form-item label="预约项目" prop="" required style="width: auto !important;"></el-form-item> -->
         {{$t('mBooking.service')}}
       </div>
 
@@ -171,19 +172,29 @@ export default {
       rules: {
           name: [
             // { required: true, message: this.$t('mBooking.namePlace'), trigger: 'blur' },
-            { required: true, message: '', trigger: 'blur' },
+            { required: true, message: this.$t('mBooking.namePlace'), trigger: 'blur' },
             // { min: 1, max: 12, message: '长度在 1 到 12 个字符', trigger: 'blur' }
           ],
           mail: [
             // { required: true, message: this.$t('mBooking.emailPlace'), trigger: 'blur' },
-            { required: true, message: '', trigger: 'blur' },
+            { required: true, message: this.$t('mBooking.emailPlace'), trigger: 'blur' },
             // { min: 6, max: 30, message: '长度在 6 到 30 个字符', trigger: 'blur' }
           ],
           code: [
             // { required: true, message: this.$t('mBooking.codePlace'), trigger: 'blur' },
-            { required: true, message: '', trigger: 'blur' },
+            { required: true, message: this.$t('mBooking.codePlace'), trigger: 'blur' },
             // { min: 4, max: 6, message: '长度在 4 到 6 个字符', trigger: 'blur' }
-          ]
+          ],
+          branch: [{
+            required: true
+          }],
+          gender: [{
+            required: true
+          }],
+          number: [{
+            required: true
+          }]
+        
       },
       pickerOptions: {
           disabledDate(time) {
@@ -218,6 +229,7 @@ export default {
     setTitle("booking");
   },
   mounted() {
+    debugger
     // Toast.loading({
     //   mask: true,
     //   message: '加载中...'

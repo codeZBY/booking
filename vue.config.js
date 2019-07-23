@@ -19,8 +19,9 @@ module.exports = {
   lintOnSave: false, // 关闭eslint代码检查
   productionSourceMap:true,
   configureWebpack: config => {
+    return { devtool: '#source-map' }
     if (process.env.NODE_ENV === 'development') {
-      return { devtool: '#source-map' }
+      return 
     }
   }
 };

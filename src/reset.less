@@ -1,11 +1,11 @@
 // reset style
 html,
 body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+    margin   : 0;
+    padding  : 0;
+    height   : 100%;
     font-size: 14px;
-    color: #303133;
+    color    : #303133;
 }
 
 ul,
@@ -13,90 +13,90 @@ li,
 dl,
 dt,
 dd {
-    margin: 0;
-    padding: 0;
+    margin    : 0;
+    padding   : 0;
     list-style: none;
 }
 
 a {
-    color: #303133;
+    color          : #303133;
     text-decoration: none;
 }
 
 img {
     display: block;
-    width: 100%;
+    width  : 100%;
 }
 
 .trans {
-    -moz-transition: all 0.3s ease-out;
+    -moz-transition   : all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
+    -ms-transition    : all 0.3s ease-out;
+    -o-transition     : all 0.3s ease-out;
+    transition        : all 0.3s ease-out;
 }
 
 .btnFly {
-    background: #7db9f8;
-    padding: 8px 22px;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    z-index: 99;
-    border-radius: 5px;
-    color: #303133;
-    color: #fff;
-    -moz-transition: all 0.3s ease-out;
+    background        : #7db9f8;
+    padding           : 8px 22px;
+    position          : absolute;
+    top               : 15px;
+    right             : 15px;
+    z-index           : 99;
+    border-radius     : 5px;
+    color             : #303133;
+    color             : #fff;
+    -moz-transition   : all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
+    -ms-transition    : all 0.3s ease-out;
+    -o-transition     : all 0.3s ease-out;
+    transition        : all 0.3s ease-out;
 
     &:hover {
-        cursor: pointer;
+        cursor : pointer;
         opacity: 0.8;
     }
 }
 
 #app {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
+    font-family            : "Avenir", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing : antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #606266;
-    background: #f4f4f4;
-    height: 100%;
+    color                  : #606266;
+    background             : #f4f4f4;
+    height                 : 100%;
 
     #navAPP {
-        // border:1px solid red;
-        position: fixed;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        z-index: 1;
-        width: 150px;
+        // border :1px solid red;
+        position  : fixed;
+        left      : 0;
+        top       : 0;
+        bottom    : 0;
+        z-index   : 1;
+        width     : 150px;
         background: #f0f8ff; // padding-top: 55px;
 
         .logo {
-            height: 42px;
-            line-height: 42px;
-            padding: 0 15px;
-            font-size: 20px;
-            color: #fff;
-            font-weight: bold;
-            background: rgba(125, 185, 248, 1);
+            height       : 42px;
+            line-height  : 42px;
+            padding      : 0 15px;
+            font-size    : 20px;
+            color        : #fff;
+            font-weight  : bold;
+            background   : rgba(125, 185, 248, 1);
             margin-bottom: 15px;
         }
 
         a {
-            display: block;
-            text-decoration: none;
-            padding: 12px;
-            margin-bottom: 1px;
-            -moz-transition: all 0.3s ease-out;
+            display           : block;
+            text-decoration   : none;
+            padding           : 12px;
+            margin-bottom     : 1px;
+            -moz-transition   : all 0.3s ease-out;
             -webkit-transition: all 0.3s ease-out;
-            -ms-transition: all 0.3s ease-out;
-            -o-transition: all 0.3s ease-out;
-            transition: all 0.3s ease-out;
+            -ms-transition    : all 0.3s ease-out;
+            -o-transition     : all 0.3s ease-out;
+            transition        : all 0.3s ease-out;
 
             >i {
                 margin-right: 8px;
@@ -108,48 +108,146 @@ img {
 
             &.router-link-active {
                 background: #fff;
-                color: #008cee;
+                color     : #008cee;
             }
         }
     }
 
     #rightAPP {
-        // border:1px solid red;
-        height: 100%;
+        // border  :1px solid red;
+        height     : 100%;
         margin-left: 150px;
-        position: relative;
+        position   : relative;
 
         // #topAPP {
-        //     // border: 1px solid blue;
-        //     height: 42px;
+        //     // border  : 1px solid blue;
+        //     height     : 42px;
         //     line-height: 42px;
-        //     padding: 0 15px;
-        //     box-shadow: 1px 2px 7px #fff;
-        //     background: rgba(125, 185, 248, 1);
+        //     padding    : 0 15px;
+        //     box-shadow : 1px 2px 7px #fff;
+        //     background : rgba(125, 185, 248, 1);
         // }
 
         .viewZone {
-            // border: 1px solid blue;
+            // border  : 1px solid blue;
             // overflow: auto;
-            height: 100%;
+            height     : 100%;
 
             .viewWrap {
-                // margin: 15px;
-                height: 100%;
-                background: #fff;
+                // margin    : 15px;
+                height       : 100%;
+                background   : #fff;
                 border-radius: 5px; // border:1px solid blue;
             }
         }
+    }
+
+    .el-checkbox__input.is-checked .el-checkbox__inner {
+        background  : #fff;
+        border-color: rgb(170, 148, 45);
+    }
+
+    .el-checkbox__input .el-checkbox__inner {
+        border-color: #000;
+    }
+
+    .el-checkbox__input.is-checked+.el-checkbox__label {
+        color: rgb(170, 148, 45);
+    }
+
+    .el-checkbox__inner:after {
+        color       : rgb(170, 148, 45);
+        border-color: rgb(170, 148, 45);
+    }
+
+    .el-form-item__label {
+        position     : relative;
+        padding-right: 5px;
+        width        : 48px !important;
+        height       : 40px;
+        text-align   : justify;
+        display      : inline-block;
+
+        &:after {
+            content : "";
+            display : inline-block;
+            width   : 100%;
+            overflow: hidden;
+        }
+    }
+
+    .el-form-item__content {
+        display    : flex;
+        position   : relative;
+        margin-left: 60px !important;
+
+        &::before {
+            content : ':';
+            position: absolute;
+            left    : -10px;
+        }
+    }
+
+    .el-form-item {
+        label[for='sex'] {
+           position: relative;
+           &::before {
+               content: "*";
+               position: absolute;
+               color: #f56c6c;
+               top: -5px;
+               right: -1px;
+           }
+        }
+        label[for='code'] + .el-form-item__content {
+            .el-input {
+                width: calc(100% - 7px) !important;
+                margin-right: 0 !important;
+            }
+            button {
+                position: absolute;
+                right: 20px;
+            }
+        }
+
+    }
+    .el-input-number__decrease, .el-input-number__increase {
+        height: 11px !important;
+        line-height: 11px !important;
+    }
+    .el-input-number__increase {
+        top: 9px;
+    }
+    .el-input-number__decrease {
+        bottom: 9px;
+    }
+    .el-form-item.is-required:not(.is-no-asterisk) .el-form-item__label-wrap>.el-form-item__label:before,
+    .el-form-item.is-required:not(.is-no-asterisk)>.el-form-item__label:before {
+        position: absolute;
+        right   : -5px;
+        top     : -5px;
+    }
+    .el-input--mini {
+        line-height: 40px;
+       input {
+        text-align: left;
+       }
+    }
+    .el-input__inner {
+        height      : 24px;
+        line-height : 24px;
+        padding     : 0 5px;
+        border-color: #606266;
     }
 }
 
 .clearfix {
     &::after {
-        clear: both;
-        content: "";
-        display: block;
-        width: 0;
-        height: 0;
+        clear     : both;
+        content   : "";
+        display   : block;
+        width     : 0;
+        height    : 0;
         visibility: hidden;
     }
 }
@@ -159,7 +257,7 @@ ul.flexLine {
 }
 
 ul.flexLine li {
-    flex: 1;
+    flex      : 1;
     text-align: center;
 }
 
@@ -181,8 +279,8 @@ ul.flexLine li {
 
 .block {
     display: block;
-    width: 100%;
-    height: 100%;
+    width  : 100%;
+    height : 100%;
 }
 
 .text-center {
@@ -190,9 +288,9 @@ ul.flexLine li {
 }
 
 .text-link {
-    color: #008cee;
+    color          : #008cee;
     text-decoration: underline;
-    cursor: pointer;
+    cursor         : pointer;
 }
 
 .text-hover {
@@ -205,8 +303,9 @@ ul.flexLine li {
 
 .marginLeft10 {
     margin-left: 10px;
-    display: inline-block;
+    display    : inline-block;
 }
+
 .widthFull {
     width: 100%;
 }
@@ -220,16 +319,16 @@ input::-webkit-input-placeholder {
 
 // 图片用，是否不用？？？
 .listPicWrap {
-    display: table-cell;
-    margin: 0 auto;
+    display       : table-cell;
+    margin        : 0 auto;
     vertical-align: middle;
-    height: 88px;
-    width: 88px;
-    line-height: 88px;
-    border: 1px solid #eee;
-    font-size: 0;
-    border-radius: 3px;
-    overflow: hidden;
+    height        : 88px;
+    width         : 88px;
+    line-height   : 88px;
+    border        : 1px solid #eee;
+    font-size     : 0;
+    border-radius : 3px;
+    overflow      : hidden;
 
     &:hover {
         opacity: .8;
@@ -241,22 +340,22 @@ input::-webkit-input-placeholder {
 // ****************************************************************************************
 // 预约弹框里的漂浮明细
 .popperBg {
-    // border: 1px solid blue;
+    // border : 1px solid blue;
     background: #303133 !important;
-    color: #fff !important;
+    color     : #fff !important;
 
     .poperBox {
         // border: 1px solid blue;
-        margin: -5px;
+        margin   : -5px;
 
         ul {
             max-height: 333px;
-            overflow: auto;
+            overflow  : auto;
             margin-top: 3px;
 
             >li {
                 font-size: 12px;
-                padding: 2px 0;
+                padding  : 2px 0;
             }
         }
     }
@@ -264,7 +363,7 @@ input::-webkit-input-placeholder {
 }
 
 .el-radio-button__orig-radio:checked+.el-radio-button__inner {
-    background: #AA942D !important;
+    background  : #AA942D !important;
     border-color: transparent !important;
 }
 
@@ -282,12 +381,12 @@ input::-webkit-input-placeholder {
     }
 
     .el-dialog__header {
-        padding: 10px 20px 5px !important;
-        background: #AA942D;
+        padding      : 10px 20px 5px !important;
+        background   : #AA942D;
         border-radius: 3px 3px 0 0;
 
         .el-dialog__title {
-            color: #fff;
+            color      : #fff;
             font-weight: bold;
         }
     }
@@ -300,7 +399,7 @@ input::-webkit-input-placeholder {
         }
     }
 }
-  
+
 
 // 修改浏览器默认滚动条样式
 .MXscroll::-webkit-scrollbar-track,
@@ -308,8 +407,8 @@ input::-webkit-input-placeholder {
 .el-dialog__wrapper::-webkit-scrollbar-track //e-ui弹出框
 
     {
-    border-radius: 10px;
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, .2);
+    border-radius   : 10px;
+    box-shadow      : inset 0 0 6px rgba(0, 0, 0, .2);
     background-color: #fff;
 }
 
@@ -318,8 +417,8 @@ input::-webkit-input-placeholder {
 .el-dialog__wrapper::-webkit-scrollbar //e-ui弹出框
 
     {
-    width: 5px;
-    height: 10px;
+    width           : 5px;
+    height          : 10px;
     background-color: #fff;
 }
 
@@ -328,7 +427,7 @@ input::-webkit-input-placeholder {
 .el-dialog__wrapper::-webkit-scrollbar-thumb //e-ui弹出框
 
     {
-    border-radius: 10px;
-    box-shadow: inset 0 0 6px rgba(180, 180, 180, 0.3);
+    border-radius   : 10px;
+    box-shadow      : inset 0 0 6px rgba(180, 180, 180, 0.3);
     background-color: #c9cbcf;
 }
