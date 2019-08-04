@@ -1,12 +1,15 @@
 .MobileOrder {
+    padding       : 0 10px;
     padding-bottom: 65px;
+
     .dialogNotice {
-        // border:1px solid red;
-        // margin-top: -28px;
+        // border     :1px solid red;
+        // margin-top : -28px;
         // line-height: 28px;
-        padding:5px 15px 5px;
-        font-size: 12px;
-        div{
+        padding       : 5px 15px 5px;
+        font-size     : 12px;
+
+        div {
             margin: 8px 0;
         }
 
@@ -17,18 +20,19 @@
         .mainTitle {
             font-size: 18px;
         }
-        .goMap{
-            background: #AA942D;
-            color: #fff;
-            padding: 0 3px;
+
+        .goMap {
+            background   : #AA942D;
+            color        : #fff;
+            padding      : 0 3px;
             border-radius: 3px;
-            cursor: pointer;
+            cursor       : pointer;
         }
 
         ul {
             // border: 1px solid red;
-            color: #AA942D;
-            clear: both;
+            color    : #AA942D;
+            clear    : both;
 
             >li {
                 float: left;
@@ -39,73 +43,210 @@
     }
 
     .itemsPick {
-        // border:1px solid red;
-        padding:35px 15px 15px;
+        // border :1px solid red;
+        padding   : 35px 15px 15px;
         max-height: 555px;
-        overflow: auto;
-        .btns{
-            position: absolute;
-            border-bottom: 1px solid #efefef;
-            left: 0;
-            top: 0;
-            right: 0;
-            // display:flex;
+        overflow  : auto;
+
+        .btns {
+            position          : absolute;
+            border-bottom     : 1px solid #efefef;
+            left              : 0;
+            top               : 0;
+            right             : 0;
+            // display        :flex;
             // justify-content: space-between;
-            align-content: center;
-            text-align: center;
-            background: #fff;
-            color: #AA942D;
-            font-weight: bold;
-            span{
+            align-content     : center;
+            text-align        : center;
+            background        : #fff;
+            color             : #AA942D;
+            font-weight       : bold;
+
+            span {
                 display: block;
                 padding: 8px 15px;
             }
         }
-        .itemTitle{
+
+        .itemTitle {
             font-size: 16px;
-            color: #AA942D;
-            margin: 10px 0 5px;
+            color    : #AA942D;
+            margin   : 10px 0 5px;
+            position: relative;
+            font-weight: bold;
+            .title-icon {
+                margin-top: -3px;
+                margin-right: 10px;
+                line-height: 21px;
+                align-items: center;
+                vertical-align: middle;
+                width: 16px;
+                height: 16px;
+                display: inline-block;
+                background: url(../../source/icon/fan.png) no-repeat;
+                background-size: 100% 100%;
+            }
         }
-        .itemList{
-            display: grid;
-            grid-template-columns: 50% 50%;
-            grid-gap: 10px;
-            align-items: center;
+        
+        .itemList {
+            display              : grid;
+            grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+            grid-gap             : 10px;
+            align-items          : center;
+
             // justify-items: center;
-            >li{
-                border:1px solid #909399;
-                padding: 6px;
+            >li {
+                border       : 1px solid #909399;
+                padding      : 6px;
                 border-radius: 3px;
-                text-align: center;
-                &.active{
-                    background: #AA942D;
-                    color: #fff;
+                text-align   : center;
+
+                &.active {
+                    background  : #AA942D;
+                    color       : #fff;
                     border-color: #AA942D;
                 }
             }
         }
 
     }
+
     .title {
         // border:1px solid red;
-        padding: 5px 15px;
-        margin: 10px 0;
-        >span{
-            background: #AA942D;
-            color: #fff;
-            padding: 5px 12px;
+        padding  : 5px 15px;
+        margin   : 10px 0;
+
+        >span {
+            background   : #AA942D;
+            color        : #fff;
+            padding      : 5px 12px;
             border-radius: 3px;
         }
     }
+
     .submit {
-        height: 45px;
+        height     : 45px;
         line-height: 45px;
-        text-align: center;
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: #AA942D;
-        color: #fff;
+        text-align : center;
+        position   : fixed;
+        left       : 0;
+        right      : 0;
+        bottom     : 0;
+        background : #AA942D;
+        color      : #fff;
+        z-index: 2010;
+    }
+    .custom-spark {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        justify-content: space-around;
+        span {
+            width: 30%;
+            height: 1px;
+        }
+        .custom-before {
+            top: 19px;
+            position: relative;
+            height: 1px;
+            background: linear-gradient(left, #f2ebcb, #AA942D);
+            background: -webkit-linear-gradient(left, #fff, #AA942D);
+            background: -o-linear-gradient(right, #fff, #AA942D);
+            background: -moz-linear-gradient(right, #fff, #AA942D);
+            background: linear-gradient(to right, #f2ebcb, #AA942D);
+        }
+        .custom-after {
+            top: 19px;
+            position: relative;
+            background: linear-gradient(right, #f2ebcb, #AA942D);
+            background: -webkit-linear-gradient(right, #fff, #AA942D);
+            background: -o-linear-gradient(left, #fff, #AA942D);
+            background: -moz-linear-gradient(left, #fff, #AA942D);
+            background: linear-gradient(to left, #f2ebcb, #AA942D);
+        }
+    }
+    .custom-middle {
+        width: 35%;
+        height: 40px;
+        line-height: 40px;
+        span {
+            line-height: 40px;
+            vertical-align: middle;
+            width: 12.5%;
+            height: 16px;
+            background: url(../../source/icon/fan.png) no-repeat center center;
+            background-size: 80%;
+            display: inline-block;
+        }
+    }
+    .spa {
+        text-align     : center;
+        position       : relative;
+        width          : 100%;
+        color          : #968542;
+        display        : flex;
+        justify-content: space-around;
+        margin-bottom  : 25px;
+
+        .spa-before {
+            position: relative;
+            width   : 20%;
+
+            &:before {
+                content   : '';
+                position  : absolute;
+                height    : 1px;
+                background: linear-gradient(left, #f2ebcb, #AA942D);
+                background: -webkit-linear-gradient(left, #fff, #AA942D);
+                background: -o-linear-gradient(right, #fff, #AA942D);
+                background: -moz-linear-gradient(right, #fff, #AA942D);
+                background: linear-gradient(to right, #f2ebcb, #AA942D);
+                left      : 0;
+                top       : 50%;
+                right     : 0;
+                width     : 100%;
+            }
+        }
+
+        .spa-after {
+            position: relative;
+            width   : 20%;
+
+            &:after {
+                width     : 100%;
+                content   : '';
+                position  : absolute;
+                height    : 1px;
+                background: linear-gradient(right, #f2ebcb, #AA942D);
+                background: -webkit-linear-gradient(right, #fff, #AA942D);
+                background: -o-linear-gradient(left, #fff, #AA942D);
+                background: -moz-linear-gradient(left, #fff, #AA942D);
+                background: linear-gradient(to left, #f2ebcb, #AA942D);
+                top       : 50%;
+                right     : 0;
+            }
+        }
+    }
+
+    .van-cell {
+        padding-top   : 0;
+        padding-bottom: 0;
+        line-height   : 45px;
+        .van-cell__title {
+            width: 80px;
+        }
+    }
+    .van-cell__right-icon {
+        margin-top: 10px;
+    }
+    .van-popup--bottom {
+        bottom: 45px;
+    }
+    .item-spark {
+        margin: 25px auto;
+        width: 100%;
+        height: 8.5px;
+        background:rgba(124,117,100, .12);
+        border-radius: 3px;
     }
 }

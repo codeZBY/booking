@@ -3,7 +3,11 @@
     <div class="title clearfix">
       <span class="pull-right" @click="langToggle">{{$i18n.locale == 'zh_CN' ? 'EN' : '中文'}}</span>
     </div>
-
+    <div class="spa">
+      <div class="spa-before"></div>
+      <div class="spa-spa">SUBCONSCIOUS DAY SPA</div>
+      <div class="spa-after"></div>
+    </div>
     <van-cell-group>
       <van-field
         v-model="form.tel"
@@ -45,14 +49,28 @@
         is-link
         @click="StorePickShow = true"
       />
-      <!-- <van-cell :title="$t('mBooking.number')" value="" required>
+      <van-cell :title="$t('mBooking.number')" value required>
         <template slot="default">
-            <van-stepper v-model="stepVal" @change="stepChange" min="1" max="5" integer />
+          <van-stepper v-model="stepVal" @change="stepChange" min="1" max="5" integer />
         </template>
-      </van-cell>-->
+      </van-cell>
     </van-cell-group>
 
     <div v-for="(item,index) in customerArr" :key="index">
+      <div class="custom-spark">
+        <span class="custom-before"></span>
+        <div class="custom-middle">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span class="custom-after"></span>
+      </div>
       <div class="title clearfix" style="margin-top:15px;">
         <span class>{{$t('mBooking.customer')}} {{index+1}}</span>
       </div>
@@ -102,9 +120,10 @@
           <span @click="itemsPickShow = false">{{$t('mBooking.sure')}}</span>
         </div>
         <div v-for="(item,index) in itemArr" :key="index">
-          <div
-            class="itemTitle"
-          >{{$i18n.locale == 'zh_CN' ? item.ServiceName : item.cfdServiceNameEn}}</div>
+          <div class="itemTitle">
+            <span class="title-icon"></span>
+            {{$i18n.locale == 'zh_CN' ? item.ServiceName : item.cfdServiceNameEn}}
+          </div>
           <ul class="itemList">
             <li
               @click="itemClick(item, item2);"
@@ -113,6 +132,7 @@
               :class="item2.active ? 'active' : ''"
             >{{$i18n.locale == 'zh_CN' ? item2.cfdItemClass : item2.cfdItemClassEn}}</li>
           </ul>
+          <div class="item-spark"></div>
         </div>
       </div>
     </van-popup>
@@ -173,7 +193,9 @@
     </van-popup>
   </div>
 </template>
-
+<style scoped lang="less">
+@import "./less.less";
+</style>
 <script>
 import moment from "moment";
 import { setTitle, setStore, getStore, checkPhone } from "@/libs/utils.js";
@@ -210,7 +232,6 @@ export default {
       itemCustIndex: -1,
       itemsPickShow: false,
       stepVal: 1,
-      // username: "ttt",
       form: {
         // tel: '15921812928',
         // code: '510311',
@@ -237,11 +258,6 @@ export default {
     setTitle("booking");
   },
   mounted() {
-    // this.showPopup02 = true
-    // let back = '{"TitleName":"很遗憾您的预约未成功！","DateTitleName":"该门店可选择以下时间进行预约","FendianTitleName":"该时间可选择以下门店进行预约","TimeList":["2019-07-04 09:31", "2019-07-04 09:31"],"FendianList":[{"ifdFendianId":1002,"cfdFendianName":"大沽店","cfdFendianNameE":"Dagu Road Branch","cfdAddress":"浦西，大沽路458号（近南京西路）","cfdSynopsis":"","cfdTel":"021-63271193","ImageUrl1":"","ImageUrl2":"","dfdDateTime":"2008-05-11T00:00:00","dfdOperateStartTime":"1900-01-01T09:00:00","dfdOperateEndTime":"1900-01-01T23:59:59","OrderNo":"","ifdType":2,"TypeName":"门店","mImageUrl1":null,"mImageUrl2":null},{"ifdFendianId":1003,"cfdFendianName":"南丰店","cfdFendianNameE":"Zunyi Road New Shop","cfdAddress":"长宁区，遵义路150号 ","cfdSynopsis":"","cfdTel":"021-62730161","ImageUrl1":"","ImageUrl2":"","dfdDateTime":"2008-05-11T00:00:00","dfdOperateStartTime":"1900-01-01T09:00:00","dfdOperateEndTime":"1900-01-01T23:00:00","OrderNo":"","ifdType":2,"TypeName":"门店","mImageUrl1":null,"mImageUrl2":null}]}'
-    // log(JSON.parse(back))
-    // this.dialogDataObj = JSON.parse(back)
-
     Toast.loading({
       mask: true,
       message: "loading..."
@@ -253,7 +269,6 @@ export default {
   },
   methods: {
     goMap(item) {
-      // log(item)
       let url = "http://api.map.baidu.com/geocoder?address=上海市";
       url += item.cfdAddress;
       url += "&output=html&src=webapp.baidu.openAPIdemo";
@@ -266,8 +281,6 @@ export default {
       this.getCode();
     },
     filter2(type, options) {
-      // log(type)
-      // log(options)
       if (type === "minute") {
         return options.filter(option => option % 10 === 0);
       }
@@ -275,7 +288,6 @@ export default {
       return options;
     },
     datePickSure(val) {
-      // log(val)
       this.datePickShow = false;
       let aa = JSON.parse(JSON.stringify(this.customerArr));
       aa[this.custActIndex].dfdStartTime = moment(val).format(
@@ -291,11 +303,8 @@ export default {
           clearInterval(t);
         }
       }, 1000);
-      // 15921812928
     },
     getTelCode() {
-      // this.waitSecond()
-      // return
       if (this.form.tel === "" || !checkPhone(this.form.tel)) {
         Toast(this.$t("mBooking.checkTel"));
         return false;
@@ -330,8 +339,6 @@ export default {
       this.itemArr.forEach(item00 => {
         item00.ItemClassList.forEach(item11 => {
           data.MentDtlList.forEach(item22 => {
-            // log(item11)
-            // log(item22)
             if (item22.cfdItemClassId === item11.ifdClassId) {
               item11.active = true;
             }
@@ -341,13 +348,8 @@ export default {
     },
     // 选项目
     itemClick(itemAll, item2) {
-      // log(item)
-      // log(item2)
-      // log(this.custActIndex)
       item2.active = !item2.active;
-
       let custBakArr = JSON.parse(JSON.stringify(this.customerArr));
-      // log(aa)
       let currentPickArr = custBakArr[this.custActIndex].MentDtlList;
       if (item2.active) {
         // 添加
@@ -542,6 +544,4 @@ export default {
 };
 </script>
 
-<style scoped lang="less">
-@import "./less.less";
-</style>
+

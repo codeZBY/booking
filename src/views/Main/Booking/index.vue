@@ -1,6 +1,5 @@
 <template>
   <div class="Home">
-    
     <div class="Header">
       <span class="pull-right">
         <el-tooltip class="item" effect="dark" content="刷新" placement="top">

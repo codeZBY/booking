@@ -1,12 +1,12 @@
 .WebOrder {
-    width: 788px;
-    margin: 0 auto;
+    width  : 788px;
+    margin : 0 auto;
     padding: 33px 0;
 
     // border:1px solid red;
     .dialogNotice {
-        // border:1px solid red;
-        margin-top: -28px;
+        // border  :1px solid red;
+        margin-top : -28px;
         line-height: 28px;
 
         .mainColor {
@@ -16,18 +16,19 @@
         .mainTitle {
             font-size: 18px;
         }
-        .goMap{
-            background: #AA942D;
-            color: #fff;
-            padding: 0 3px;
+
+        .goMap {
+            background   : #AA942D;
+            color        : #fff;
+            padding      : 0 3px;
             border-radius: 3px;
-            cursor: pointer;
+            cursor       : pointer;
         }
 
         ul {
             // border: 1px solid red;
-            color: #AA942D;
-            clear: both;
+            color    : #AA942D;
+            clear    : both;
 
             >li {
                 float: left;
@@ -38,15 +39,15 @@
     }
 
     .webTop {
-        text-align: center;
-        color: #AA942D;
+        text-align   : center;
+        color        : #AA942D;
         margin-bottom: 5px;
-        position: relative;
+        position     : relative;
 
         .language {
             position: absolute;
-            top: 0;
-            right: 0;
+            top     : 0;
+            right   : 0;
         }
 
         >span {
@@ -54,57 +55,58 @@
         }
 
         >div {
-            padding: 8px;
+            padding : 8px;
             position: relative;
 
             &::before {
-                content: '';
-                position: absolute;
-                height: 1px;
+                content   : '';
+                position  : absolute;
+                height    : 1px;
                 background: linear-gradient(left, #f2ebcb, #AA942D);
-                background: -webkit-linear-gradient(left, #fff, #AA942D); 
-                background: -o-linear-gradient(right, #fff, #AA942D); 
-                background: -moz-linear-gradient(right, #fff, #AA942D); 
-                background: linear-gradient(to right, #f2ebcb , #AA942D); 
-                left: 0;
-                top: 50%;
-                right: 0;
-                width: 45%;
+                background: -webkit-linear-gradient(left, #fff, #AA942D);
+                background: -o-linear-gradient(right, #fff, #AA942D);
+                background: -moz-linear-gradient(right, #fff, #AA942D);
+                background: linear-gradient(to right, #f2ebcb, #AA942D);
+                left      : 0;
+                top       : 50%;
+                right     : 0;
+                width     : 45%;
             }
+
             &:after {
-                width: 45%;
-                content: '';
-                position: absolute;
-                height: 1px;
+                width     : 45%;
+                content   : '';
+                position  : absolute;
+                height    : 1px;
                 background: linear-gradient(right, #f2ebcb, #AA942D);
-                background: -webkit-linear-gradient(right, #fff, #AA942D); 
-                background: -o-linear-gradient(left, #fff, #AA942D); 
-                background: -moz-linear-gradient(left, #fff, #AA942D); 
-                background: linear-gradient(to left, #f2ebcb , #AA942D); 
-                top: 50%;
-                right: 0;
+                background: -webkit-linear-gradient(right, #fff, #AA942D);
+                background: -o-linear-gradient(left, #fff, #AA942D);
+                background: -moz-linear-gradient(left, #fff, #AA942D);
+                background: linear-gradient(to left, #f2ebcb, #AA942D);
+                top       : 50%;
+                right     : 0;
             }
+
             >span {
                 background: #fff;
-                padding: 0 12px;
-                position: relative;
-                z-index: 1;
+                padding   : 0 12px;
+                position  : relative;
+                z-index   : 1;
             }
         }
     }
 
     .customerBox {
 
-        // border:1px solid red;
         .name {
             padding: 10px 0;
 
             >span {
-                display: inline-block;
-                background: #AA942D;
-                padding: 5px 15px;
+                display      : inline-block;
+                background   : #AA942D;
+                padding      : 5px 15px;
                 border-radius: 3px;
-                color: #fff;
+                color        : #fff;
             }
         }
 
@@ -114,6 +116,12 @@
 
         .itemLine {
             padding: 8px 0;
+        }
+
+        .el-checkbox__input.is-checked .el-checkbox__inner,
+        .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+            background-color: #AA942D;
+            border-color    : #AA942D;
         }
     }
 }
