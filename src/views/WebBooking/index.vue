@@ -26,9 +26,9 @@
           </el-form-item>
         </el-col>
         <el-col :span="8">
-          <el-form-item :label="$t('mBooking.gender')" prop="gender" required>
+          <el-form-item :label="$t('mBooking.gender')" prop="gender">
             <!-- <el-input v-model="form.sex" placeholder="请输入性别"></el-input> -->
-            <el-select v-model="form.sex" placeholder>
+            <el-select v-model="form.gender" placeholder>
               <el-option :label="$t('mBooking.woman')" :value="$t('mBooking.woman')"></el-option>
               <el-option :label="$t('mBooking.man')" :value="$t('mBooking.man')"></el-option>
               <el-option :label="$t('mBooking.unknow')" :value="$t('mBooking.unknow')"></el-option>
@@ -74,7 +74,7 @@
         <el-col :span="12">
           <el-form-item :label="$t('mBooking.number')" prop="number">
             <el-input-number
-              v-model="stepVal"
+              v-model.number="form.number"
               controls-position="right"
               style="width: calc(100% - 7px);"
               size="mini"
@@ -86,26 +86,41 @@
         </el-col>
       </el-row>
 
-      <div class="customerBox" v-for="(item,index) in customerArr" :key="index">
+      <div class="customerBox" v-for="(item,index) in this.form.customerArr" :key="index">
         <div class="name">
           <span>{{$t('mBooking.customer')}} {{index+1}}</span>
         </div>
-        <el-form-item :label="$t('mBooking.date')" prop="date" required>
-          <el-date-picker
-            v-model="item.dfdStartTime"
-            type="date"
-            format="yyyy-MM-dd"
-            :picker-options="pickerOptions"
-            placeholder
-          ></el-date-picker>
-          <el-time-select
-            v-model="item.dfdStartTime"
-            type="time"
-            format="HH:mm"
-            step="00:10"
-            :picker-options="timePickerOptions"
-          ></el-time-select>
-        </el-form-item>
+        <el-row :gutter="20">
+          <el-col :span="10">
+            <el-form-item :label="$t('mBooking.date')" prop="date">
+              <el-date-picker
+                v-model="item.dfdStartTime.date"
+                type="date"
+                format="yyyy-MM-dd"
+                value-format="yyyy-MM-dd"
+                :picker-options="pickerOptions"
+                placeholder="选择日期"
+              ></el-date-picker>
+            </el-form-item>
+          </el-col>
+          <el-col :span="10">
+            <el-form-item prop="time">
+              <el-time-select
+                v-model="item.dfdStartTime.time"
+                type="time"
+                name="timepicker"
+                format="HH:mm"
+                value-format="HH:mm"
+                :picker-options="{
+              start: '06:00',
+              step: '00:10',
+              end: '23:00' 
+            }"
+                placeholder="选择时间"
+              ></el-time-select>
+            </el-form-item>
+          </el-col>
+        </el-row>
         <div class="custItem">
           <!-- <el-form-item label="预约项目" prop="" required style="width: auto !important;"></el-form-item> -->
           {{$t('mBooking.service')}}
@@ -200,9 +215,19 @@ export default {
         tel: "",
         code: "",
         name: "",
-        // sex: this.$i18n.locale == 'zh_CN' ? '女' : 'woman',
-        sex: "女",
-        mail: ""
+        sex: this.$i18n.locale == "zh_CN" ? "女" : "woman",
+        mail: "",
+        date: "",
+        time: "",
+        number: 1,
+        customerArr: [
+          {
+            dfdStartTime: {
+              date: "",
+              time: ""
+            }
+          }
+        ]
       },
       columnVal: 1002, // 门店选择
       columnArr: [],
@@ -218,8 +243,8 @@ export default {
             required: true,
             message: this.$t("mBooking.namePlace"),
             trigger: "blur"
-          }
-          // { min: 1, max: 12, message: '长度在 1 到 12 个字符', trigger: 'blur' }
+          },
+          { min: 1, max: 12, message: "长度在 1 到 12 个字符", trigger: "blur" }
         ],
         mail: [
           // { required: true, message: this.$t('mBooking.emailPlace'), trigger: 'blur' },
@@ -227,8 +252,8 @@ export default {
             required: true,
             message: this.$t("mBooking.emailPlace"),
             trigger: "blur"
-          }
-          // { min: 6, max: 30, message: '长度在 6 到 30 个字符', trigger: 'blur' }
+          },
+          { min: 6, max: 30, message: "长度在 6 到 30 个字符", trigger: "blur" }
         ],
         code: [
           // { required: true, message: this.$t('mBooking.codePlace'), trigger: 'blur' },
@@ -236,22 +261,42 @@ export default {
             required: true,
             message: this.$t("mBooking.codePlace"),
             trigger: "blur"
+          },
+          { min: 4, max: 6, message: "长度在 4 到 6 个字符", trigger: "blur" }
+        ],
+        date: [
+          {
+            required: true,
+            message: "请选择日期",
+            trigger: "change"
           }
-          // { min: 4, max: 6, message: '长度在 4 到 6 个字符', trigger: 'blur' }
+        ],
+        time: [
+          {
+            required: true,
+            message: "请选择时间",
+            trigger: "change"
+          }
         ],
         branch: [
           {
-            required: true
+            required: true,
+            message: this.$t("mBooking.branchPlace"),
+            trigger: "change"
           }
         ],
         gender: [
           {
-            required: true
+            required: true,
+            message: this.$t("mBooking.genderPlace"),
+            trigger: "change"
           }
         ],
         number: [
           {
-            required: true
+            required: true,
+            message: "请选择人数",
+            trigger: "change"
           }
         ]
       },
@@ -285,9 +330,9 @@ export default {
         ]
       },
       timePickerOptions: {
-        step: '00:10',
-        start: '06:00',
-        end: '22:00',
+        step: "00:10",
+        start: "06:00",
+        end: "22:00"
       }
     };
   },
@@ -344,7 +389,7 @@ export default {
       let custArr = [];
       let flag = true;
 
-      this.customerArr.forEach(item => {
+      this.form.customerArr.forEach(item => {
         let pickArr = [];
         if (item.MentDtlList.length === 0) {
           flag = false;
@@ -380,7 +425,7 @@ export default {
         cfdEmail: this.form.mail,
         cfdWeixinOpenid: "",
         cfdMemberId: "",
-        AppointMentNumber: this.stepVal,
+        AppointMentNumber: this.form.number,
         MentMstList: custArr,
         language: this.$i18n.locale == "zh_CN" ? 0 : 1
       };
@@ -413,14 +458,16 @@ export default {
             });
             // this.$message.success('预约成功！')
             // window.location.reload()
-            this.stepVal = 1;
             this.addCust();
             this.form = {
               tel: "",
               code: "",
               name: "",
               sex: "女",
-              mail: ""
+              mail: "",
+              number: 1,
+              date: "",
+              time: ""
             };
           } else {
             if (res.data && res.data.TitleName) {
@@ -506,7 +553,10 @@ export default {
     addCust() {
       let obj = {
         // dfdStartTime: moment(new Date()).format("YYYY-MM-DD HH:mm"),
-        dfdStartTime: new Date(),
+        dfdStartTime: {
+          date: "",
+          time: ""
+        },
         MentDtlList: [
           // {
           //   cfdItemClassId: 1007,
@@ -518,12 +568,12 @@ export default {
           // },
         ]
       };
-      this.customerArr = [];
+      this.form.customerArr = [];
       let arr = [];
-      for (var i = 0; i < this.stepVal; i++) {
+      for (var i = 0; i < this.form.number; i++) {
         arr.push(obj);
       }
-      this.customerArr = JSON.parse(JSON.stringify(arr));
+      this.form.customerArr = JSON.parse(JSON.stringify(arr));
     },
     getShops() {
       this.$axios
