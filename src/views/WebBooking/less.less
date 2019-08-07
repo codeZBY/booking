@@ -127,9 +127,10 @@
     
 }
 
-.el-scrollbar__view  {
-    border: 1px solid rebeccapurple;
-    .el-time-spinner__item:nth-child(10n) {
-        display: none;
-    }
+.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+    background-color: #AA942D;
+    border-color: #AA942D;
+}
+.el-checkbox__input.is-checked+.el-checkbox__label {
+    color: #AA942D;
 }

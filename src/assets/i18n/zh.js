@@ -15,7 +15,7 @@ export default {
         name: '姓名',
         namePlace: '请输入姓名',
         gender: '性别',
-        genderPlace: 'Please input GENDER',
+        genderPlace: '请选择性别',
         man: '男',
         woman: '女',
         unknow: '未知',

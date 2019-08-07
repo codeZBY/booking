@@ -191,28 +191,28 @@ img {
     // .el-form-item {
     //     label[for='sex'] {
     //        position: relative;
-    //        &::before {
-    //            content: "*";
+    //        &       ::before {
+    //            content : "*";
     //            position: absolute;
-    //            color: #f56c6c;
-    //            top: -5px;
-    //            right: -1px;
+    //            color   : #f56c6c;
+    //            top     : -5px;
+    //            right   : -1px;
     //        }
     //     }
     //     label[for='code'] + .el-form-item__content {
     //         .el-input {
-    //             width: calc(100% - 7px) !important;
+    //             width       : calc(100% - 7px) !important;
     //             margin-right: 0 !important;
     //         }
     //         button {
     //             position: absolute;
-    //             right: 20px;
+    //             right   : 20px;
     //         }
     //     }
 
     // }
     // .el-input-number__decrease, .el-input-number__increase {
-    //     height: 11px !important;
+    //     height     : 11px !important;
     //     line-height: 11px !important;
     // }
     // .el-input-number__increase {
@@ -444,6 +444,18 @@ input::-webkit-input-placeholder {
 
 .el-select-dropdown__item {
     height     : 35px;
-    color: #333;
+    color      : #333;
     line-height: 35px;
+}
+
+.el-checkbox__input.is-checked+.el-checkbox__label {
+    color: #AA942D !important;
+}
+
+.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+    background-color: #AA942D !important;
+    border-color: #AA942D !important;
+}
+.el-checkbox__inner:hover {
+    border-color: #AA942D !important;
 }
