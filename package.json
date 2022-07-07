@@ -13,7 +13,7 @@
     "element-ui": "^2.9.1",
     "jquery": "^3.4.1",
     "js-cookie": "^2.2.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "plupload": "^2.3.6",
     "storejs": "^1.0.25",
     "vant": "^2.0.0",
